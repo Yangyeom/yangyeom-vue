@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     getMovies(){
-      axios.get('http://127.0.0.1:8000/api/v1/movies/')
+      axios.get('https://yangyeom.herokuapp.com/api/v1/movies/')
         .then(response => {
           console.log(response)
           this.movies = response.data
@@ -61,13 +61,13 @@ export default {
         })
     },
     getRecommendation() {
-      axios.get(`http://127.0.0.1:8000/accounts/${this.user}/`, this.options)
+      axios.get(`https://yangyeom.herokuapp.com/accounts/${this.user}/`, this.options)
         .then(response => {
           console.log('결제했는지', response.data.paid)
           if (response.data.paid) {
              const conf = this.options
               conf.user = this.user
-             axios.get('http://127.0.0.1:8000/api/v1/recommend', conf)
+             axios.get('https://yangyeom.herokuapp.com/api/v1/recommend', conf)
               .then(response => {
                 console.log(response)
                 // this.recommended = JSON.parse(response.data)

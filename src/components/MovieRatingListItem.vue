@@ -51,7 +51,7 @@ export default {
         movie: this.movie.code
       }
       console.log(data)
-      axios.post(`http://127.0.0.1:8000/api/v1/movie/${this.movie.code}/reviews/`, data, this.options)
+      axios.post(`https://yangyeom.herokuapp.com/api/v1/movie/${this.movie.code}/reviews/`, data, this.options)
         .then(response => {
           console.log(response)
           const review = {

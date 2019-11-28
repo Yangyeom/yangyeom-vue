@@ -18,7 +18,7 @@
     },
     methods: {
       login(credentials) {
-        axios.post('http://127.0.0.1:8000/api-token-auth/', credentials)
+        axios.post('https://yangyeom.herokuapp.com/api-token-auth/', credentials)
           .then(response => {
             console.log(response)
 

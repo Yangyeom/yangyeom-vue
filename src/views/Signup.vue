@@ -20,11 +20,11 @@ export default {
     },
     methods: {
         signup(credentials) {
-            axios.post('http://127.0.0.1:8000/accounts/signup/', credentials)
+            axios.post('https://yangyeom.herokuapp.com/accounts/signup/', credentials)
                 .then(response =>{
                     console.log(response)
                     if (response.status === 201){
-                        axios.post('http://127.0.0.1:8000/api-token-auth/', credentials)
+                        axios.post('https://yangyeom.herokuapp.com/api-token-auth/', credentials)
                             .then(response2 => {
                                 console.log(response2)
                                 const token = response2.data.token

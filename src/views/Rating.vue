@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         getMovies(){
-            axios.get('http://127.0.0.1:8000/api/v1/movies/rating/')
+            axios.get('https://yangyeom.herokuapp.com/api/v1/movies/rating/')
                 .then(response => {
                     console.log(response)
                     this.movies = response.data
@@ -52,7 +52,7 @@ export default {
                 window.location.href = '/';
                 const conf = this.options
                 conf.user = this.user
-                axios.get('http://127.0.0.1:8000/api/v1/evaluatesimi/', conf) // 추천은 결제후. 유사도 계산은 평가할 때마다!
+                axios.get('https://yangyeom.herokuapp.com/api/v1/evaluatesimi/', conf) // 추천은 결제후. 유사도 계산은 평가할 때마다!
                     .then(response => {
                         console.log(response)
                         console.log('유사도 계산하라고 했음')

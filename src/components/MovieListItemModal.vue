@@ -85,7 +85,7 @@ export default {
           user: this.user,
           movie: this.movie.code
         }
-        axios.post(`http://127.0.0.1:8000/api/v1/movie/${this.movie.code}/reviews/`, data, this.options)
+        axios.post(`https://yangyeom.herokuapp.com/api/v1/movie/${this.movie.code}/reviews/`, data, this.options)
           .then(response => {
             console.log(response)
             // const review = {
@@ -110,7 +110,7 @@ export default {
       let conf = this.options
       conf.user = this.user
       console.log(conf)
-      axios.delete(`http://127.0.0.1:8000/api/v1/movie/${this.movie.code}/reviews/${review_id}/`, conf)
+      axios.delete(`https://yangyeom.herokuapp.com/api/v1/movie/${this.movie.code}/reviews/${review_id}/`, conf)
         .then(response => {
             console.log(response)
             // this.movie.review_set = this.movie.review_set.filter(review => review.id !== review_id)
