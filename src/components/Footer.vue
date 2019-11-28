@@ -22,12 +22,12 @@
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a @click.prevent="$EventBus.$emit('emergency')">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="">
                                         <i class="fab fa-linkedin-in"></i>
                                     </a>
                                 </li>

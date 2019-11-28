@@ -47,6 +47,9 @@ export default {
   created() {
     this.$EventBus.$on('click-icon', () => {
       this.getRecommendation()
+    }),
+    this.$EventBus.$on('emergency', () => {
+      this.emergencyGetRec()
     })
   },
   methods: {
@@ -65,9 +68,9 @@ export default {
         .then(response => {
           console.log('결제했는지', response.data.paid)
           if (response.data.paid) {
-             const conf = this.options
-              conf.user = this.user
-             axios.get('https://yangyeom.herokuapp.com/api/v1/recommend', conf)
+            const conf = this.options
+            conf.user = this.user
+            axios.get('https://yangyeom.herokuapp.com/api/v1/recommend', conf)
               .then(response => {
                 console.log(response)
                 // this.recommended = JSON.parse(response.data)
@@ -90,6 +93,18 @@ export default {
       //   .catch(error => {
       //     console.log(error)
       //   })
+    },
+    emergencyGetRec() {
+      const conf = this.options
+      conf.user = this.user
+      axios.get('https://yangyeom.herokuapp.com/api/v1/recommend', conf)
+      .then(response => {
+        console.log(response)
+        // this.recommended = JSON.parse(response.data)
+        this.recommended = response.data
+        console.log('추천받은 영화:', this.recommended)
+        this.done = true
+      })
     },
     isLogined(){
       this.$session.start()
